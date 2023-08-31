@@ -30,12 +30,17 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         MoveX();
+        AutoMove();
     }
 
     private void MoveX()
     {
         float xMove = xAxis.ReadValue<float>();
         transform.position += speed * Time.deltaTime * xMove * transform.right;
+    }
 
+    private void AutoMove()
+    {
+        transform.position += transform.forward * speed * Time.deltaTime;
     }
 }
