@@ -29,7 +29,7 @@ public class CameraFollow : MonoBehaviour
         position.z = transform.position.z + decalZ;
 
         Vector3 direction = (position - cameraTransform.position).normalized;
-        bool playerIsActive = Mathf.Abs(position.z - cameraTransform.transform.position.z) <= zThreshold;
+        bool playerIsActive = Mathf.Abs(position.z - cameraTransform.position.z) <= zThreshold;
         float speed = (playerIsActive ? playerControl.speed : playerControl.speed * 10);
         cameraTransform.position += direction * speed * Time.deltaTime;
         playerControl.enabled = playerIsActive;
